@@ -1,0 +1,10 @@
+<?php $title='Privacy - Money CEO'; include __DIR__.'/../components/header.php'; ?>
+<?php include __DIR__.'/../components/navbar.php'; ?>
+<div class="container grid" style="grid-template-columns:260px 1fr;gap:24px">
+  <?php include __DIR__.'/../components/sidebar.php'; ?>
+  <main class="card">
+    <h2>Privacy</h2>
+    <p>We respect your privacy. We store only what is needed to run the app. Do not share secrets inside free text fields.</p>
+  </main>
+</div>
+<?php include __DIR__.'/../components/footer.php'; ?>
