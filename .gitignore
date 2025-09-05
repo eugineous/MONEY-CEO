@@ -1,0 +1,20 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Logs and temp
+*.log
+tmp/
+cache/
+
+# Secrets you might add later
+.env
+includes/config.php
+
+# Vendor folders if you ever add them
+vendor/
+node_modules/
