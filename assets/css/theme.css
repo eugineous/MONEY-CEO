@@ -1,0 +1,7 @@
+html[data-theme="dark"]{
+  --color-bg-light:#121212;
+  --color-text-main:#F5F5F5;
+  --color-text-secondary:#B8BCC4;
+}
+html[data-theme="dark"] body{background:var(--color-bg-light);color:var(--color-text-main)}
+html[data-theme="dark"] .card{background:#1C1C1C}
