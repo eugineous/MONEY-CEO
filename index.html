@@ -1,71 +1,70 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Money CEO – Preview</title>
-  <style>
-    :root{
-      --bg:#0f0f0f; --card:#1a1b1e; --text:#f5f5f5; --muted:#9aa0a6;
-      --primary:#FF0000; --accent:#10a37f;
-    }
-    *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif}
-    body{margin:0;background:var(--bg);color:var(--text)}
-    .container{max-width:1080px;margin:40px auto;padding:0 16px}
-    .topbar{display:flex;align-items:center;justify-content:space-between}
-    .logo{font-weight:800;letter-spacing:.5px}
-    .kpis{display:grid;gap:12px;grid-template-columns:repeat(4,minmax(0,1fr));margin:20px 0}
-    .card{background:var(--card);border-radius:12px;padding:16px;border:1px solid #2a2b2f}
-    .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
-    .value{font-size:24px;margin-top:6px}
-    .nav{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{background:#222; border:1px solid #2a2b2f; color:#fff; padding:10px 14px; border-radius:10px; cursor:pointer}
-    .btn:hover{border-color:#3a3b40}
-    .grid{display:grid;gap:16px;grid-template-columns:300px 1fr}
-    .side a{display:block;color:#fff;text-decoration:none;padding:10px;border-radius:10px;border:1px solid #2a2b2f;margin-bottom:8px;background:#17181a}
-    .side a:hover{border-color:#3a3b40}
-    .chart{height:240px;background:linear-gradient(180deg,#222,transparent);border-radius:12px;border:1px solid #2a2b2f}
-    .note{font-size:12px;color:var(--muted);margin-top:12px}
-    @media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)} .grid{grid-template-columns:1fr}}
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Money CEO – Dashboard</title>
+  <!-- Link our shared stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Import Google Font for a modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Chart.js CDN for simple charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="topbar">
-      <div class="logo">MONEY CEO</div>
-      <div class="nav">
-        <button class="btn">Dashboard</button>
-        <button class="btn">Transactions</button>
-        <button class="btn">Budgets</button>
-        <button class="btn">Debts</button>
-        <button class="btn" style="border-color:var(--primary)">Reports</button>
-      </div>
+  <!-- Top navigation bar -->
+  <nav class="navbar">
+    <div class="nav-left">Money CEO</div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link active">Dashboard</a>
+      <a href="transactions.html" class="nav-link">Transactions</a>
+      <a href="budgets.html" class="nav-link">Budgets</a>
+      <a href="goals.html" class="nav-link">Goals</a>
+      <a href="debts.html" class="nav-link">Debts</a>
+      <a href="reports.html" class="nav-link">Reports</a>
     </div>
+  </nav>
 
-    <div class="kpis">
-      <div class="card"><div class="label">Total income</div><div class="value" style="color:var(--accent)">KSh 210,000</div></div>
-      <div class="card"><div class="label">Total expenses</div><div class="value" style="color:var(--primary)">KSh 156,200</div></div>
-      <div class="card"><div class="label">Savings rate</div><div class="value">25%</div></div>
-      <div class="card"><div class="label">Debt-free countdown</div><div class="value">14 months</div></div>
-    </div>
-
-    <div class="grid">
-      <div class="side">
-        <a href="#">Income vs Expense</a>
-        <a href="#">Top 20 Expenses</a>
-        <a href="#">Monthly Dashboard</a>
-        <a href="#">Debt Payoff</a>
+  <!-- Main container -->
+  <main class="container">
+    <!-- KPI cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <span class="kpi-label">Total Income</span>
+        <span id="totalIncome" class="kpi-value income">KSh 0</span>
       </div>
-      <div class="card">
-        <h3 style="margin:0 0 10px 0">Income vs Expense (preview)</h3>
-        <div class="chart"></div>
-        <div class="note">This is a static preview. The real charts + login work on your PHP hosting (cPanel).</div>
+      <div class="kpi-card">
+        <span class="kpi-label">Total Expenses</span>
+        <span id="totalExpenses" class="kpi-value expense">KSh 0</span>
       </div>
-    </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Savings</span>
+        <span id="savings" class="kpi-value savings">KSh 0</span>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Savings Rate</span>
+        <span id="savingsRate" class="kpi-value">0%</span>
+      </div>
+    </section>
 
-    <p class="note" style="margin-top:24px">
-      Disclaimer: Educational only. Not financial advice. Use at your own risk.
-    </p>
-  </div>
+    <!-- Chart panel -->
+    <section class="chart-panel">
+      <h2 class="chart-title">Income vs Expenses</h2>
+      <canvas id="incomeExpenseChart" width="400" height="200"></canvas>
+    </section>
+
+    <!-- Disclaimer -->
+    <p class="note">Disclaimer: Money CEO is an educational tool. It does not provide financial, legal, tax or investment advice. Use at your own risk.</p>
+  </main>
+
+  <!-- Shared script functions -->
+  <script src="script.js"></script>
+  <script>
+    // When the dashboard loads, render KPIs and the chart
+    document.addEventListener('DOMContentLoaded', () => {
+      renderKPIs();
+      drawIncomeExpenseChart();
+    });
+  </script>
 </body>
 </html>
