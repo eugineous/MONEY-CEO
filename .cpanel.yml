@@ -1,0 +1,16 @@
+# .cpanel.yml
+deployment:
+  tasks:
+    # 1) Where to publish (your web root)
+    - export DEPLOYPATH=/home/euginemi/public_html
+
+    # 2) Make sure the target exists
+    - /bin/mkdir -p $DEPLOYPATH
+
+    # 3) Copy the /public app to the website root
+    - /bin/rsync -a --delete \
+        --exclude '.git' \
+        --exclude '.github' \
+        --exclude '.cpanel.yml' \
+        --exclude 'docs' \
+        public/ $DEPLOYPATH/
