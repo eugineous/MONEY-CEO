@@ -1,0 +1,199 @@
+/*
+ * Global style sheet for Money CEO
+ * Defines a dark theme with red and green accents and simple responsive layouts.
+ */
+
+/* Variables for colours and sizing */
+:root {
+  --bg: #0f0f0f;
+  --card: #1a1b1e;
+  --text: #f5f5f5;
+  --muted: #9aa0a6;
+  --accent: #ff0000;
+  --positive: #10a37f;
+  --border: #2a2b2f;
+  --radius: 12px;
+  --spacing: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Navigation bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing);
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-left {
+  font-weight: 700;
+  font-size: 20px;
+}
+.nav-right {
+  display: flex;
+  gap: var(--spacing);
+  flex-wrap: wrap;
+}
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  transition: background 0.2s;
+}
+.nav-link:hover {
+  background: var(--border);
+}
+.nav-link.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--spacing);
+}
+
+/* KPI grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing);
+  margin-bottom: 2rem;
+}
+.kpi-card {
+  background: var(--card);
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.kpi-label {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.kpi-value {
+  font-size: 24px;
+  font-weight: 600;
+}
+.kpi-value.income {
+  color: var(--positive);
+}
+kpi-value.expense {
+  color: var(--accent);
+}
+kpi-value.savings {
+  color: var(--positive);
+}
+
+/* Chart panel */
+.chart-panel {
+  background: var(--card);
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.chart-title {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+/* Note / disclaimer */
+.note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2rem;
+}
+
+/* Forms */
+.form {
+  background: var(--card);
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.form-row label {
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.form-row input,
+.form-row select {
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: #222328;
+  color: var(--text);
+}
+.form-row input:focus,
+.form-row select:focus {
+  outline: 2px solid var(--accent);
+}
+.btn-submit {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-submit:hover {
+  background: #cc0000;
+}
+
+/* Transactions table */
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+.transactions-table th,
+.transactions-table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.transactions-table thead th {
+  background: var(--card);
+  color: var(--muted);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.transactions-table tbody tr:nth-child(odd) {
+  background: #18191c;
+}
+.transactions-table tbody tr:nth-child(even) {
+  background: #1e1f23;
+}
+
+/* Page titles */
+.page-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 28px;
+}
