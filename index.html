@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Money CEO – Preview</title>
+  <style>
+    :root{
+      --bg:#0f0f0f; --card:#1a1b1e; --text:#f5f5f5; --muted:#9aa0a6;
+      --primary:#FF0000; --accent:#10a37f;
+    }
+    *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif}
+    body{margin:0;background:var(--bg);color:var(--text)}
+    .container{max-width:1080px;margin:40px auto;padding:0 16px}
+    .topbar{display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:800;letter-spacing:.5px}
+    .kpis{display:grid;gap:12px;grid-template-columns:repeat(4,minmax(0,1fr));margin:20px 0}
+    .card{background:var(--card);border-radius:12px;padding:16px;border:1px solid #2a2b2f}
+    .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+    .value{font-size:24px;margin-top:6px}
+    .nav{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{background:#222; border:1px solid #2a2b2f; color:#fff; padding:10px 14px; border-radius:10px; cursor:pointer}
+    .btn:hover{border-color:#3a3b40}
+    .grid{display:grid;gap:16px;grid-template-columns:300px 1fr}
+    .side a{display:block;color:#fff;text-decoration:none;padding:10px;border-radius:10px;border:1px solid #2a2b2f;margin-bottom:8px;background:#17181a}
+    .side a:hover{border-color:#3a3b40}
+    .chart{height:240px;background:linear-gradient(180deg,#222,transparent);border-radius:12px;border:1px solid #2a2b2f}
+    .note{font-size:12px;color:var(--muted);margin-top:12px}
+    @media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)} .grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="logo">MONEY CEO</div>
+      <div class="nav">
+        <button class="btn">Dashboard</button>
+        <button class="btn">Transactions</button>
+        <button class="btn">Budgets</button>
+        <button class="btn">Debts</button>
+        <button class="btn" style="border-color:var(--primary)">Reports</button>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="card"><div class="label">Total income</div><div class="value" style="color:var(--accent)">KSh 210,000</div></div>
+      <div class="card"><div class="label">Total expenses</div><div class="value" style="color:var(--primary)">KSh 156,200</div></div>
+      <div class="card"><div class="label">Savings rate</div><div class="value">25%</div></div>
+      <div class="card"><div class="label">Debt-free countdown</div><div class="value">14 months</div></div>
+    </div>
+
+    <div class="grid">
+      <div class="side">
+        <a href="#">Income vs Expense</a>
+        <a href="#">Top 20 Expenses</a>
+        <a href="#">Monthly Dashboard</a>
+        <a href="#">Debt Payoff</a>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 10px 0">Income vs Expense (preview)</h3>
+        <div class="chart"></div>
+        <div class="note">This is a static preview. The real charts + login work on your PHP hosting (cPanel).</div>
+      </div>
+    </div>
+
+    <p class="note" style="margin-top:24px">
+      Disclaimer: Educational only. Not financial advice. Use at your own risk.
+    </p>
+  </div>
+</body>
+</html>
